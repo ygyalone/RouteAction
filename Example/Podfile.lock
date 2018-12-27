@@ -1,0 +1,16 @@
+PODS:
+  - RouteAction (0.1.0)
+
+DEPENDENCIES:
+  - RouteAction (from `../`)
+
+EXTERNAL SOURCES:
+  RouteAction:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RouteAction: f83f28b9b9073a6b4c30c10c6f35f431d9ad002c
+
+PODFILE CHECKSUM: d3b115d77f5318d3df1ebaf24bb5cd86310efc1e
+
+COCOAPODS: 1.5.3
