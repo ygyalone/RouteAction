@@ -1,6 +1,6 @@
 # RouteAction
 
-**RouteAction是一个路由工具，用来解除业务之间的耦合，实现组件化。**
+**RouteAction是一个路由工具，用来解除业务模块之间的横向依赖，实现组件化。**
 
 RouteAction包括两个部分，Core和Extension。Core提供了最基本的路由功能，注册路由动作，发起请求。Extension提供了对控制器跳转的路由支持。
 
