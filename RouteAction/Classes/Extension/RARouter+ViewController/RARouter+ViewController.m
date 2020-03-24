@@ -12,7 +12,10 @@
 
 @implementation RARouter (ViewController)
 
-- (void)registerControllerWithClass:(Class)controllerClass URLPattern:(NSString *)URLPattern {
+- (void)registerControllerWithClass:(Class)controllerClass
+                         URLPattern:(NSString *)URLPattern
+                        constructor:(void(^)(UIViewController *vc))constructor {
+    NSParameterAssert([controllerClass isSubclassOfClass:UIViewController.class]);
     
     [self registerActionWithURLPattern:URLPattern block:^(RARequest *request, RARequestHandler *handler) {
         NSAssert([request isKindOfClass:[RATransitionRequest class]],
@@ -20,10 +23,8 @@
         
         RATransitionRequest *r = (RATransitionRequest *)request;
         NSAssert(r.transitionDisplay, @"Error: transition request must has a transitionDisplay!");
-        
         UIViewController *to = [[controllerClass alloc] initWithRARequest:r handler:handler];
-        to.ra_sourceRequest = r;
-        to.ra_sourceRequestHandler = handler;
+        ra_exeBlock(constructor, to);
         
         __weak typeof(r) weak_r = r;
         [r.transitionDisplay displayFromViewController:r.requester

@@ -13,7 +13,8 @@
 
 + (void)load {
     //注册控制器
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo1"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo1" constructor:nil];
+    
     //注册事件
     [[RARouter shared] registerActionWithURLPattern:@"/demo1/action" block:^(RARequest *request, RARequestHandler *handler) {
         UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;

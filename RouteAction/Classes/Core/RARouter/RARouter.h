@@ -10,11 +10,11 @@
 #import "RARequestHandler.h"
 #import "RAIntercepter.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void(^RAResponseBlock)(RARequest * request, RARequestHandler *handler);
 
 @interface RARouter : NSObject
-
-NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 ///发送请求
@@ -28,6 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///全局404配置
 - (void)configGlobalMissmatch:(void(^)(RARequest *request))block;
 
-NS_ASSUME_NONNULL_END
-
 @end
+
+NS_ASSUME_NONNULL_END

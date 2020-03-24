@@ -55,7 +55,7 @@
 
 #pragma mark - UIViewControllerAnimatedTransitioning
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
-    return 0.33;
+    return 0.5;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -77,8 +77,11 @@
     CGRect finalFrame = [transitionContext finalFrameForViewController:to];
     to.view.frame = CGRectOffset(finalFrame, 0, CGRectGetHeight(finalFrame));
     
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        from.view.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                          delay:0 usingSpringWithDamping:1
+          initialSpringVelocity:1
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        from.view.layer.affineTransform = CGAffineTransformMakeScale(0.95, 0.95);
         to.view.frame = finalFrame;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
@@ -91,11 +94,14 @@
     UIViewController * to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     CGRect finalFrame = [transitionContext finalFrameForViewController:to];
-    to.view.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    to.view.layer.affineTransform = CGAffineTransformMakeScale(0.95, 0.95);
     
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]+0.1
+                          delay:0 usingSpringWithDamping:1
+          initialSpringVelocity:1
+                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
         from.view.frame = CGRectOffset(finalFrame, 0, CGRectGetHeight(finalFrame));
-        to.view.transform = CGAffineTransformIdentity;
+        to.view.layer.affineTransform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];

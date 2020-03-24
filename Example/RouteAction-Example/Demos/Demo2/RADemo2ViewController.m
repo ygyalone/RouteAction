@@ -13,7 +13,7 @@
 
 + (void)load {
     //注册控制器
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo2"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo2" constructor:nil];
     //注册拦截器
     RAIntercepter *intercepter = [RAIntercepter intercepterWithAwake:^(RARequest *request, id<RAIntercepterJudger> judger) {
         judger.doContinue();

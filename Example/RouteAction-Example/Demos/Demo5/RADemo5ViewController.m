@@ -12,7 +12,7 @@
 @implementation RADemo5ViewController
 
 + (void)load {
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo5"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo5" constructor:nil];
 }
 
 - (void)viewDidLoad {

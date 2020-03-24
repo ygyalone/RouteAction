@@ -8,11 +8,12 @@
 
 #import "RADemo3ViewController.h"
 @import RouteAction;
+#import <RARouter+ViewController.h>
 
 @implementation RADemo3ViewController
 
 + (void)load {
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo3/:account/:password"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo3/:account/:password" constructor:nil];
 }
 
 - (void)viewDidLoad {

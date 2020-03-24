@@ -175,7 +175,7 @@
         RAResponseBlock response = nil;
         response = [self responseOfNode:node withPaths:paths];
         if (!response) {
-            RALog(@"%@", [NSString stringWithFormat:@"Error: can not find response bound to url:%@", request.url]);
+            NSAssert(self.gloabalMissmatch != nil, @"Error: can not find response bound to URL:%@", request.url);
             ra_exeBlock(self.gloabalMissmatch, request);
             return;
         }

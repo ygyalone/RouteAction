@@ -12,7 +12,7 @@
 @implementation RADemo4ViewController
 
 + (void)load {
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo4"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo4" constructor:nil];
     
     [[RARouter shared] configGlobalMissmatch:^(RARequest * _Nonnull request) {
         UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;

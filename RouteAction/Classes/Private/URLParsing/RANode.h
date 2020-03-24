@@ -7,10 +7,12 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface RANode<T> : NSObject
 
 @property (nonatomic, readonly) NSString *key;
-@property (nonatomic, strong) T value;
+@property (nonatomic, strong) _Nullable T value;
 @property (nonatomic, readonly) NSUInteger depth;
 @property (nonatomic, readonly) RANode *superNode;
 @property (nonatomic, readonly) NSDictionary<NSString *, RANode *> *subNodes;
@@ -20,3 +22,5 @@
 - (void)removeFromSuperNode;
 
 @end
+
+NS_ASSUME_NONNULL_END

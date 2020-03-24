@@ -8,5 +8,9 @@
 #import "RARouter.h"
 
 @interface RARouter (ViewController)
-- (void)registerControllerWithClass:(Class)controllerClass URLPattern:(NSString *)URLPattern;
+
+- (void)registerControllerWithClass:(Class)controllerClass
+                         URLPattern:(NSString *)URLPattern
+                        constructor:(void(^)(UIViewController *vc))constructor;
+
 @end

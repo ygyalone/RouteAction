@@ -13,8 +13,8 @@
 @interface UIViewController (RARoute)
 
 - (instancetype)initWithRARequest:(RATransitionRequest *)request handler:(RARequestHandler<RATransitionResponse *> *)handler;
-@property (nonatomic, strong) RATransitionRequest *ra_sourceRequest;
-@property (nonatomic, strong) RARequestHandler<RATransitionResponse *> *ra_sourceRequestHandler;
+@property (nonatomic, readonly) RATransitionRequest *ra_sourceRequest;
+@property (nonatomic, readonly) RARequestHandler<RATransitionResponse *> *ra_sourceRequestHandler;
 
 - (void)ra_startRequest:(RATransitionRequest *)request;
 - (void)ra_response:(id)data code:(NSInteger)code;

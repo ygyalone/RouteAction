@@ -16,7 +16,7 @@
 @implementation RADemo6ViewController
 
 + (void)load {
-    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo6"];
+    [[RARouter shared] registerControllerWithClass:[self class] URLPattern:@"/demo6" constructor:nil];
 }
 
 - (NSArray<NSDictionary *> *)models {
